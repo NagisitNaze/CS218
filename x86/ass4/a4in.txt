@@ -1,0 +1,56 @@
+#------------------------------------
+# CS 218 - Assignment #4
+#   Debugger Script File
+#------------------------------------
+echo \n\n
+break last
+run
+set pagination off
+set logging file a5out.txt
+set logging overwrite
+set logging on
+set prompt
+echo ------------------------------------ \n
+echo double-word declared array
+echo \n\n
+x/100dw &lst
+echo ------------------------------------ \n
+echo display double-word calculation variables \n
+echo lstMin: \t\t
+x/dw &lstMin
+echo lstMid: \t\t
+x/dw &lstMid
+echo lstMax: \t\t
+x/dw &lstMax
+echo lstSum: \t\t 
+x/dw &lstSum
+echo lstAve: \t\t
+x/dw &lstAve
+echo \n\n
+echo posCnt: \t\t
+x/dw &posCnt
+echo posSum: \t\t
+x/dw &posSum
+echo posAve: \t\t
+x/dw &posAve
+echo \n\n
+echo sevenCnt: \t\t
+x/dw &sevenCnt
+echo sevenSum: \t\t
+x/dw &sevenSum
+echo sevenAve: \t\t
+x/dw &sevenAve
+echo ------------------------------------ \n
+echo Cube Areas \n\n
+echo caMin: \t\t
+x/uh &caMin
+echo caMid: \t\t
+x/uh &caMid
+echo caMax: \t\t
+x/uw &caSum
+echo caAve: \t\t
+x/uh &caAve
+echo ------------------------------------ \n
+echo \n \n
+set logging off
+quit

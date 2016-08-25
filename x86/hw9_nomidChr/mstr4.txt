@@ -1,0 +1,40 @@
+--------------------------------------------------
+CS 218 - Assignment #9
+
+Enter Value (binary): Enter Value (binary): Enter Value (binary): Enter Value (binary): Enter Value (binary): Enter Value (binary): Enter Value (binary): Enter Value (binary): Enter Value (binary): Enter Value (binary): Enter Value (binary): Enter Value (binary): Enter Value (binary): Enter Value (binary): Enter Value (binary): Enter Value (binary): Enter Value (binary): Enter Value (binary): Enter Value (binary): Enter Value (binary): Enter Value (binary): Enter Value (binary): Enter Value (binary): Enter Value (binary): Enter Value (binary): Enter Value (binary): Enter Value (binary): Enter Value (binary): Enter Value (binary): Enter Value (binary): Enter Value (binary): Enter Value (binary): Enter Value (binary): Enter Value (binary): Enter Value (binary): Enter Value (binary): Enter Value (binary): Enter Value (binary): Enter Value (binary): Error, invalid number. Please re-enter.
+Enter Value (binary): Error, invalid number. Please re-enter.
+Enter Value (binary): Enter Value (binary): Error, invalid number. Please re-enter.
+Enter Value (binary): Enter Value (binary): Enter Value (binary): Enter Value (binary): Error, invalid number. Please re-enter.
+Enter Value (binary): Error, invalid number. Please re-enter.
+Enter Value (binary): Enter Value (binary): Enter Value (binary): Error, invalid number. Please re-enter.
+Enter Value (binary): Enter Value (binary): Enter Value (binary): Error, invalid number. Please re-enter.
+Enter Value (binary): Enter Value (binary): Enter Value (binary): Enter Value (binary): Enter Value (binary): Error, invalid number. Please re-enter.
+Enter Value (binary): Enter Value (binary): Enter Value (binary): Enter Value (binary): Enter Value (binary): Enter Value (binary): Error, number below minimum value. Please re-enter.
+Enter Value (binary): Enter Value (binary): Error, invalid number. Please re-enter.
+Enter Value (binary): Enter Value (binary): Enter Value (binary): --------------------------------------------------
+
+Program Results
+
+Sorted Cube Areas List: 
+ 23814   23814    5766    5766    5766  
+  5766    5766     726     294     294  
+   294     294     294     294     294  
+   294     294     294     294     294  
+   294     294     294     294     294  
+   294     294     294     294     294  
+   294     294     294     294     294  
+   294     294     294     294     294  
+   294     294     150     150     150  
+    54      54      54      54      54  
+    54      54      54      54      54  
+    54      54      54  
+
+  Count       =            58
+  Minimum     =            54
+  Maximum     =         23814
+  Median      =           294
+  Sum         =         88332
+  Average     =          1522
+  Four Sum    =             0
+  m-statistic =    1257092352
+

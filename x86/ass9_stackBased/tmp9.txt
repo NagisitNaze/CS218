@@ -1,0 +1,35 @@
+--------------------------------------------------
+CS 218 - Assignment #9
+
+Enter Value (binary): Enter Value (binary): Enter Value (binary): Enter Value (binary): Enter Value (binary): Enter Value (binary): Enter Value (binary): Enter Value (binary): Enter Value (binary): Enter Value (binary): Enter Value (binary): Enter Value (binary): Enter Value (binary): Enter Value (binary): Enter Value (binary): Enter Value (binary): Enter Value (binary): Enter Value (binary): Enter Value (binary): Enter Value (binary): Enter Value (binary): Enter Value (binary): Enter Value (binary): Enter Value (binary): Enter Value (binary): Enter Value (binary): Enter Value (binary): Enter Value (binary): Enter Value (binary): Enter Value (binary): Enter Value (binary): Enter Value (binary): Enter Value (binary): Enter Value (binary): Enter Value (binary): Enter Value (binary): Enter Value (binary): Enter Value (binary): Enter Value (binary): Enter Value (binary): Enter Value (binary): Enter Value (binary): Enter Value (binary): Enter Value (binary): Enter Value (binary): Enter Value (binary): Enter Value (binary): Enter Value (binary): Enter Value (binary): Enter Value (binary): Enter Value (binary): Enter Value (binary): Enter Value (binary): Enter Value (binary): Enter Value (binary): Enter Value (binary): Enter Value (binary): Enter Value (binary): Enter Value (binary): Enter Value (binary): Enter Value (binary): Enter Value (binary): Enter Value (binary): Enter Value (binary): Enter Value (binary): Enter Value (binary): Enter Value (binary): Enter Value (binary): Enter Value (binary): Enter Value (binary): Enter Value (binary): Enter Value (binary): Enter Value (binary): Enter Value (binary): Enter Value (binary): Enter Value (binary): Enter Value (binary): Enter Value (binary): Error, user input exceeded length, input ignored. Please re-enter.
+Enter Value (binary): Enter Value (binary): --------------------------------------------------
+
+Program Results
+
+Sorted Cube Areas List: 
+   294     294     294     294     294  
+   294     294     294     294     294  
+   216     216     216     150     150  
+   150     150     150      96      54  
+    54      54      54      54      54  
+    54      54      54      54      54  
+    54      54      54      54      54  
+    54      54      54      54      54  
+    54      54      54      54      54  
+    54      54      54      54      54  
+    54      54      54      54      54  
+    54      54      54      54      54  
+    54      54      54      54      24  
+    24      24      24      24      24  
+    24      24      24       6       6  
+     6       6       6  
+
+  Count       =            78
+  Minimum     =             6
+  Maximum     =           294
+  Median      =            54
+  Sum         =          7110
+  Average     =            91
+  Four Sum    =           960
+  m-statistic =        722196
+

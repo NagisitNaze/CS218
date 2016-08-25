@@ -1,0 +1,5 @@
+--------------------------------------------------
+CS 218 - Assignment #9
+
+Enter Value (binary): Error, not enough numbers entered.
+Program terminated.

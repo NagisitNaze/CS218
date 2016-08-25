@@ -1,0 +1,38 @@
+--------------------------------------------------
+CS 218 - Assignment #9
+
+Enter Value (binary): Enter Value (binary): Enter Value (binary): Enter Value (binary): Enter Value (binary): Enter Value (binary): Error, invalid number. Please re-enter.
+Enter Value (binary): Error, invalid number. Please re-enter.
+Enter Value (binary): Enter Value (binary): Enter Value (binary): Enter Value (binary): Enter Value (binary): Enter Value (binary): Enter Value (binary): Enter Value (binary): Error, invalid number. Please re-enter.
+Enter Value (binary): Error, invalid number. Please re-enter.
+Enter Value (binary): Error, invalid number. Please re-enter.
+Enter Value (binary): Error, invalid number. Please re-enter.
+Enter Value (binary): Error, invalid number. Please re-enter.
+Enter Value (binary): Error, invalid number. Please re-enter.
+Enter Value (binary): Error, invalid number. Please re-enter.
+Enter Value (binary): Enter Value (binary): Error, invalid number. Please re-enter.
+Enter Value (binary): Error, number below minimum value. Please re-enter.
+Enter Value (binary): Error, invalid number. Please re-enter.
+Enter Value (binary): Error, invalid number. Please re-enter.
+Enter Value (binary): Enter Value (binary): Error, invalid number. Please re-enter.
+Enter Value (binary): Enter Value (binary): Enter Value (binary): Enter Value (binary): Error, invalid number. Please re-enter.
+Enter Value (binary): Enter Value (binary): Enter Value (binary): Enter Value (binary): Enter Value (binary): --------------------------------------------------
+
+Program Results
+
+Sorted Cube Areas List: 
+ 25350   24576   23814   23814    5766  
+  5766    5766    1350    1350    1350  
+   294     294     294     294     294  
+   294     294     294     216       6  
+     6  
+
+  Count       =            21
+  Minimum     =             6
+  Maximum     =         25350
+  Median      =           294
+  Sum         =        121482
+  Average     =          5784
+  Four Sum    =         24792
+  m-statistic =    2417145192
+

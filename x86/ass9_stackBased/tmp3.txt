@@ -1,0 +1,41 @@
+--------------------------------------------------
+CS 218 - Assignment #9
+
+Enter Value (binary): Enter Value (binary): Enter Value (binary): Enter Value (binary): Enter Value (binary): Error, invalid number. Please re-enter.
+Enter Value (binary): Error, invalid number. Please re-enter.
+Enter Value (binary): Error, invalid number. Please re-enter.
+Enter Value (binary): Error, invalid number. Please re-enter.
+Enter Value (binary): Error, invalid number. Please re-enter.
+Enter Value (binary): Error, invalid number. Please re-enter.
+Enter Value (binary): Enter Value (binary): Error, invalid number. Please re-enter.
+Enter Value (binary): Error, number below minimum value. Please re-enter.
+Enter Value (binary): Error, invalid number. Please re-enter.
+Enter Value (binary): Enter Value (binary): Enter Value (binary): Enter Value (binary): Error, invalid number. Please re-enter.
+Enter Value (binary): Enter Value (binary): Enter Value (binary): Error, invalid number. Please re-enter.
+Enter Value (binary): Enter Value (binary): Enter Value (binary): Enter Value (binary): Enter Value (binary): Error, invalid number. Please re-enter.
+Enter Value (binary): Error, invalid number. Please re-enter.
+Enter Value (binary): Error, invalid number. Please re-enter.
+Enter Value (binary): Enter Value (binary): Enter Value (binary): Error, invalid number. Please re-enter.
+Enter Value (binary): Enter Value (binary): Enter Value (binary): Error, invalid number. Please re-enter.
+Enter Value (binary): Enter Value (binary): Error, invalid number. Please re-enter.
+Enter Value (binary): Error, invalid number. Please re-enter.
+Enter Value (binary): Error, number below minimum value. Please re-enter.
+Enter Value (binary): Enter Value (binary): --------------------------------------------------
+
+Program Results
+
+Sorted Cube Areas List: 
+ 23814    1350    1350     294     294  
+   294     294     294     294     294  
+   294     294     294     294     294  
+   294      54      54       6       6  
+
+  Count       =            20
+  Minimum     =             6
+  Maximum     =         23814
+  Median      =           294
+  Sum         =         30456
+  Average     =          1522
+  Four Sum    =             0
+  m-statistic =     555701760
+
