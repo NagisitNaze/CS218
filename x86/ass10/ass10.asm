@@ -184,6 +184,8 @@ B_VALUE		equ	1
 
 len 		dd  0				;length
 
+n 			dd 	0				;n
+
 ;-------------------------------------------------------------
 
 section  .text
@@ -283,8 +285,6 @@ getIterations:
 ;address of iterations(length) - rdx 
 
 push rbx
-push rcx
-push r8
 push r12
 push r13
 	
@@ -349,8 +349,6 @@ push r13
 			mov rax, 0 				;clear
 			mov al, byte[r13+rbx] 	;binaryString[i]
 
-			inc rbx 				;i++
-
 			cmp al, NULL 			;while (argv[2][i] != NULL)
 			je endofBinaryCheck
 
@@ -360,6 +358,7 @@ push r13
 			cmp al, 0x31   			;if binaryString = '1'
 			ja notBinary			;then its not a '1' or '0'
 
+			inc rbx 				;i++
 			jmp binaryCheck
 
 		endofBinaryCheck:
@@ -430,8 +429,6 @@ push r13
 
 pop r13
 pop r12
-pop r8
-pop rcx 
 pop rbx 
 
 
@@ -463,7 +460,10 @@ common	iterations	1:4			; iteration count
 
 global drawChaos
 drawChaos:
-	push	r12				; save registers
+	
+ 
+	push r12				; save registers
+	
 
 ; -----
 ; Prepare for drawing
@@ -485,18 +485,19 @@ drawChaos:
 ;  initX[i]
 
 	mov r12,0						;i = 0
+
 	calcLoop:
 		;----------------
 		;intitX[i]
 
-		cvtsi2sd xmm0, r12d 			;xmm0 = 0.0, 32bit -> 64 bit floating point 
-		mulsd xmm0, qword[dStep]		;i*dStep
+		cvtsi2sd xmm0, r12d 			 ;xmm0 = 1.0, 32bit -> 64 bit floating point 
+		mulsd xmm0, qword[dStep]		 ;i*dStep
+		cvtsi2sd xmm2, dword[degree]  	 ;convert int degree to 64 bit floating point
+		addsd xmm0, xmm2				 ;(degree+(i*dStep))
 
-		movsd xmm1, qword[pi]			;xmm1 = 3.14... 
-		divsd xmm1, qword[oneEighty] 	;pi/180.0
-		cvtsi2sd xmm2, dword[degree]  	;convert int degree to 64 bit floating point
-		mulsd xmm1,xmm2	  				;(degree*(pi/180))
-		addsd xmm0, xmm1                ;xmm0 = ((degree*(pi/180))+(i*dStep))
+		movsd xmm1, qword[pi]			 ;xmm1 = 3.14... 
+		divsd xmm1, qword[oneEighty] 	 ;pi/180.0
+		mulsd xmm0,xmm1	  				 ;(degree*(pi/180))
 
 		call sin 						
 
@@ -506,14 +507,14 @@ drawChaos:
 		;----------------
 		;intitY[i]
 
-		cvtsi2sd xmm0, r12d 			;xmm0 = 0.0, 32bit -> 64 bit floating point 
-		mulsd xmm0, qword[dStep]		;i*dStep
+		cvtsi2sd xmm0, r12d 			 ;xmm0 = 1.0, 32bit -> 64 bit floating point 
+		mulsd xmm0, qword[dStep]		 ;i*dStep
+		cvtsi2sd xmm2, dword[degree]  	 ;convert int degree to 64 bit floating point
+		addsd xmm0, xmm2				 ;(degree+(i*dStep))
 
-		movsd xmm1, qword[pi]			;xmm1 = 3.14... 
-		divsd xmm1, qword[oneEighty] 	;pi/180.0
-		cvtsi2sd xmm2, dword[degree]  	;convert int degree to 64 bit 
-		mulsd xmm1,xmm2	  				;(degree*(pi/180))
-		addsd xmm0, xmm1                ;xmm0 = ((degree*(pi/180))+(i*dStep))
+		movsd xmm1, qword[pi]			 ;xmm1 = 3.14... 
+		divsd xmm1, qword[oneEighty] 	 ;pi/180.0
+		mulsd xmm0,xmm1	  				 ;(degree*(pi/180))
 
 		call cos 						
 
@@ -523,9 +524,39 @@ drawChaos:
 		;--------------
 		;increment i and condition
 
+
+
 		inc r12
 		cmp r12, 3
 		jl calcLoop
+
+;---------------------------------------
+;Test 
+
+;	mov r12,0
+
+;	testLoop:
+		;color 
+;		mov rdx, 255
+;		mov rsi, 255
+;		mov rdi, 255
+	
+
+;		call glColor3ub
+
+		;x, y 
+
+;		movsd xmm1, qword[initY+(r12*8)]
+;		movsd xmm0, qword[initX+(r12*8)]
+
+;		call glVertex2d
+
+;		inc r12
+;		cmp r12,3
+
+;		jb testLoop
+
+;---------------------------------------
 
 ; -----
 ;  Main plot loop.
@@ -536,6 +567,103 @@ drawChaos:
 ;	plot (x,y)
 
 
+	mov r12,0		     ;i = 0
+
+	chaosLoop:
+
+		cmp r12d, dword[iterations]
+		jae endofChaos 
+
+		;----------
+		;Random Number Generator 
+
+		mov rax, A_VALUE					;A 
+		mov rcx, qword[seed]				;seed(Rn)
+		mul rcx 							;A*seed 
+		add rax, B_VALUE					;A*seed+B 
+
+		mov r8, 65536						;2^16
+		mov rdx,0							;clear
+		div r8								;rdx:rax / 2^16
+		mov qword[seed],rdx 				;(A*seed+B)%2^16
+
+		;-----------
+		;n = s % 3	
+
+		mov rax, qword[seed] 				;get a copy of s 
+		mov rdx,0							;clear
+		div qword[qThree]					;rax (s)/3
+		mov dword[n], edx 					;n = s%3
+
+		;-----------
+		;x = x +( (init_x(n)-x)/2 )
+
+		mov r8,0							;clear
+		mov r8d, dword[n] 					;get the value of n 
+		movsd xmm0, qword[initX+(r8*8)]		;grab initX[n]
+		subsd xmm0, qword[x] 				;initX - x
+		divsd xmm0, qword[fTwo]				;(initX - x)/2.0
+		addsd xmm0, qword[x] 				;xmm0 = x+ ((initX - x)/2.0)
+		movsd qword[x], xmm0 				;x = xmm0
+
+		;-----------
+		;y = y +( (init_y(n)-y)/2 )
+
+		mov r8,0							;clear
+		mov r8d, dword[n] 					;get the value of n 
+		movsd xmm0, qword[initY+(r8*8)]		;grab initY[n]
+		subsd xmm0, qword[y] 				;initY - y
+		divsd xmm0, qword[fTwo]				;(initY - y)/2.0
+		addsd xmm0, qword[y] 				;xmm0 = y + ((initY - y)/2.0)
+		movsd qword[y], xmm0 				;y = xmm0
+
+		;----------
+		;set color (x,y,z)
+
+		cmp dword[n], 0						; n == 0
+		jne not0
+			mov dword[blue], 0			
+			mov dword[green], 0				;then red 
+			mov dword[red], 255						
+		not0:
+
+		cmp dword[n], 1						; n == 1
+		jne not1
+			mov dword[blue], 0			
+			mov dword[green], 255			;then green 
+			mov dword[red], 0						
+		not1:	
+
+		cmp dword[n], 2						; n == 2
+		jne not2
+			mov dword[blue], 255			
+			mov dword[green], 0				;then blue 
+			mov dword[red], 0						
+		not2:	
+
+		mov rdi,0							;clear
+		mov rsi,0
+		mov rdx,0
+
+		mov edx, dword[blue]	 			;3rd Arg
+		mov esi, dword[green]				;2nd Arg
+		mov edi, dword[red]					;1st Arg
+
+		call glColor3ub 
+
+		;----------
+		;plot(x,y)
+
+		movsd xmm1, qword[y]				;2nd Arg 
+		movsd xmm0, qword[x]				;1st Arg 
+
+		call glVertex2d
+
+
+		inc r12 							;i++
+		jmp chaosLoop 
+
+	endofChaos:
 
 
 ; -----
@@ -545,6 +673,8 @@ drawChaos:
 	call	glFlush
 
 	pop	r12
+
+
 	ret
 
 ; ******************************************************************
